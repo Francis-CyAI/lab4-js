@@ -58,7 +58,24 @@ if (questionClass) {
 }
 
 let backToTopBtn = document.getElementById("backToTopBtn")
+
 if (backToTopBtn) {
+
+    window.addEventListener('scroll', function () {
+        var scrollPosition = window.scrollY || window.pageYOffset;
+        var viewportHeight = window.innerHeight;
+
+        if (scrollPosition > viewportHeight) {
+            // backToTopBtn.classList.remove('hidden');
+            // backToTopBtn.classList.add('visible');
+            backToTopBtn.classList.toggle('visible');
+        } else {
+            // backToTopBtn.classList.remove('visible');
+            // backToTopBtn.classList.add('hidden');
+            backToTopBtn.classList.toggle('visible');
+        }
+    });
+
     backToTopBtn.addEventListener("click", () => {
         window.location.href = `#top`;
     })
